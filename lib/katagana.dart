@@ -1,15 +1,37 @@
 import 'package:flutter/material.dart';
 
+
+
 class KatakanaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Katakana Page'),
+        title: Text('Hiragana Page'),
       ),
       body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: DataTable(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            _buildKataganaTable(),
+            _buildKataganaTable2(),
+            // Add more tables here as needed
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+    );
+  }
+
+  Widget _buildKataganaTable() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: DataTable(
           columns: [
             DataColumn(label: Text('')),
             DataColumn(label: Text('a')),
@@ -109,13 +131,65 @@ class KatakanaPage extends StatelessWidget {
             ]),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.arrow_back),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-      ),
+    );
+  }
+
+  Widget _buildKataganaTable2() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: DataTable(
+                columns: [
+                  DataColumn(label: Text('')),
+                  DataColumn(label: Text('a')),
+                  DataColumn(label: Text('i')),
+                  DataColumn(label: Text('u')),
+                  DataColumn(label: Text('e')),
+                  DataColumn(label: Text('o')),
+                ],
+                rows: [
+                  DataRow(cells: [
+                    DataCell(Text('G')),
+                    DataCell(Text('ガ')),
+                    DataCell(Text('ギ')),
+                    DataCell(Text('グ')),
+                    DataCell(Text('ゲ')),
+                    DataCell(Text('ゴ')),
+                  ]),
+                  DataRow(cells: [
+                    DataCell(Text('Z')),
+                    DataCell(Text('ザ')),
+                    DataCell(Text('ジ')),
+                    DataCell(Text('ズ')),
+                    DataCell(Text('ゼ')),
+                    DataCell(Text('ゾ')),
+                  ]),
+                  DataRow(cells: [
+                    DataCell(Text('D')),
+                    DataCell(Text('ダ')),
+                    DataCell(Text('ヂ')),
+                    DataCell(Text('ヅ')),
+                    DataCell(Text('デ')),
+                    DataCell(Text('ド')),
+                  ]),
+                  DataRow(cells: [
+                    DataCell(Text('B')),
+                    DataCell(Text('バ')),
+                    DataCell(Text('ビ')),
+                    DataCell(Text('ブ')),
+                    DataCell(Text('ベ')),
+                    DataCell(Text('ボ')),
+                  ]),
+                  DataRow(cells: [
+                    DataCell(Text('P')),
+                    DataCell(Text('パ')),
+                    DataCell(Text('ピ')),
+                    DataCell(Text('プ')),
+                    DataCell(Text('ペ')),
+                    DataCell(Text('ポ')),
+                  ]),
+                ],
+              ),
+
     );
   }
 }
